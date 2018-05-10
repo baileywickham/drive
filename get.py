@@ -6,6 +6,8 @@ gauth.LocalWebserverAuth()
 
 drive = GoogleDrive(gauth)
 
-fileList = drive.ListFile().GetList()
+fileList = drive.ListFile({'q' : 'type=document'}).GetList()
 for i in fileList:
-    print(i)
+    # str literal, needs > 3.6
+    # print(f"the name is {f.title}")
+    print('title: %s, id: %s' % (i['title'], i['id']))
