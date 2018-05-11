@@ -7,5 +7,6 @@ name = "pypi"
 google-api-python-client = "*"
 requests = "*"
 pydrive = "*"
+readchar = "*"
 
 [dev-packages]
