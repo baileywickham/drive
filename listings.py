@@ -8,8 +8,20 @@ lenList[0] = 1
 def outputList(testList):
     while True:
         for idex, litem in enumerate(testList):
-           print(litem, " : (" + str(int(lenList[idex])) + ")" ) 
-        if readchar.readkey() == readchar.key.UP:
-            print("up arrow")
+            print(litem, " : (" + str(int(lenList[idex])) + ")" ) 
+
+        key = readchar.readkey()
+        if key == readchar.key.UP or key == 'w':
+            lenList[idex + 1] = 1
+            lenList[idex] = 0
+            idex = idex + 1
+        if key == readchar.key.DOWN or key == 's':
+            lenList[idex - 1] = 1
+            lenList[idex] = 0
+            idex = idex + 1
+        if key == readchar.key.CTRL_C:
+            raise KeyboardInterrupt()
+        print("idex =", idex)
+        print("this is the current list: ", lenList)
 
 outputList(testList)
