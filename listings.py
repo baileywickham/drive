@@ -1,4 +1,6 @@
+# I think this will be depricated.
 import readchar
+from inquirer import Checkbox
 testList = ['opion 1', 'option 2', 'third option', 'forth']
 
 lenList = [0 for i in range(len(testList))] 

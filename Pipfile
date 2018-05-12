@@ -8,5 +8,6 @@ google-api-python-client = "*"
 requests = "*"
 pydrive = "*"
 readchar = "*"
+inquirer = "*"
 
 [dev-packages]
