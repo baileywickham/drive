@@ -9,5 +9,6 @@ requests = "*"
 pydrive = "*"
 readchar = "*"
 inquirer = "*"
+xattr = "*"
 
 [dev-packages]
