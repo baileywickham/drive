@@ -1,8 +1,8 @@
 # I think this will be depricated.
 import readchar
-from inquirer import Checkbox
+from inquirer import Checkbox, prompt
 testList = ['opion 1', 'option 2', 'third option', 'forth']
-
+answerList = [1,0,0,1]
 lenList = [0 for i in range(len(testList))] 
 # there has to be a better way to do this.
 lenList[0] = 1
@@ -26,4 +26,5 @@ def outputList(testList):
         print("idex =", idex)
         print("this is the current list: ", lenList)
 
-outputList(testList)
+c = [Checkbox('interests', message="interest check", choices=testList, default=answerList)]
+print(prompt(c))
