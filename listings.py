@@ -11,8 +11,11 @@ def getDownloadedFiles():
     # generator because it should only be compared once. 
     yield idList 
 
-def outputList(nameList, idList):
-    dl = [ id for id in getDownloadedFiles() if id in [x for x in idList]] 
-        
-    c = [Checkbox('documents', message='List of Google Docs:', choices=nameList)]
-    prompt(c)
+def outputList(fileList):
+    # dl = [ id for id in getDownloadedFiles()] 
+
+    c = [Checkbox('docs', message='List of Google Docs:', choices=[x['title'] for x in fileList]) ]
+    # need to impliment already downloaded check, then return a clean
+    # prompt list
+    return prompt(c)
+    
