@@ -22,10 +22,10 @@ def getList():
 
 # force keyword args out of laziness
 def downloadDocument(*, request):
-    for title in request:
-        fileToWrite = drive.CreateFile({'title' : title})
+    for id in request:
+        fileToWrite = drive.CreateFile({'id' : id})
         fileToWrite.FetchMetadata()
-        fileToWrite.GetContentFile('./Downloaded/' + fileToWrite['title'])
+        fileToWrite.GetContentFile('./Downloaded/' + fileToWrite['title'] + '.pdf', mimetype='application/pdf')
 
 # is this even good practice any more? Is there a better standard? Probably.
 def main():

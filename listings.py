@@ -14,5 +14,7 @@ def outputList(fileList):
     c = [Checkbox('docs', message='List of Google Docs:', choices=[x['title'] for x in fileList]) ]
     # need to impliment already downloaded check, then return a clean
     # prompt list
-    return prompt(c)['docs']
-    
+    responses = prompt(c)['docs']
+    return [file['id'] for file in fileList if file['title'] in responses]
+
+       
