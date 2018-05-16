@@ -22,8 +22,8 @@ def getList():
 
 # force keyword args out of laziness
 def downloadDocument(*, request):
-    for id in request:
-        fileToWrite = drive.CreateFile({'id' : id})
+    for title in request:
+        fileToWrite = drive.CreateFile({'title' : title})
         fileToWrite.FetchMetadata()
         fileToWrite.GetContentFile('./Downloaded/' + fileToWrite['title'])
 
