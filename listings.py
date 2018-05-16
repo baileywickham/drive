@@ -4,7 +4,7 @@ import xattr
 from inquirer import Checkbox, prompt
 
 def getDownloadedFiles():
-    idList = [xattr.getxattr(file, 'user.docid') for file in os.listdir('./Downloaded')] 
+    idList = [xattr.getxattr(os.path.join('Downloaded', file), 'user.docid') for file in os.listdir('./Downloaded')] 
     # generator because it should only be compared once. 
     yield idList 
 
@@ -15,6 +15,7 @@ def outputList(fileList):
     # need to impliment already downloaded check, then return a clean
     # prompt list
     responses = prompt(c)['docs']
-    return [file['id'] for file in fileList if file['title'] in responses]
+    return [file['id'] for file in fileList if file['title'] in responses and file['id'] not in idList]
 
-       
+def setDocID(*, id, name):
+    xattr.setxattr(os.path.join('Downloaded', name), 'user.docid', id)

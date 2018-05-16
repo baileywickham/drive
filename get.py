@@ -28,7 +28,10 @@ def downloadDocument(*, request):
     for id in request:
         fileToWrite = drive.CreateFile({'id' : id})
         fileToWrite.FetchMetadata()
-        fileToWrite.GetContentFile('./Downloaded/' + fileToWrite['title'] + '.pdf', mimetype='application/pdf')
+        fileToWrite.GetContentFile('./Downloaded/' + fileToWrite['title'] + '.pdf',
+                mimetype='application/pdf')
+        listing.setDocID(id=id, name=fileToWrite['title'])
+
 
 # is this even good practice any more? Is there a better standard? Probably.
 def main():
