@@ -7,6 +7,7 @@ gauth.LocalWebserverAuth()
 
 drive = GoogleDrive(gauth)
 
+#TODO add upload function, add check diff func. 
 def getList():
     # sharedWithMe = false returns a 404 error. This is an api problem.
     fileList = drive.ListFile({'q' : "mimeType = 'application/vnd.google-apps.document'", 'maxResults' : 10}).GetList()
@@ -20,8 +21,10 @@ def getList():
     request = listings.outputList(fileList)
     downloadDocument(request=request) 
 
-# force keyword args out of laziness
+# force keyword args out of laziness, eventually I'll add more args.
 def downloadDocument(*, request):
+    # Downloads doc from ids returned.
+    # TODO show progress. use readable format.
     for id in request:
         fileToWrite = drive.CreateFile({'id' : id})
         fileToWrite.FetchMetadata()
