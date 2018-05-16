@@ -30,7 +30,7 @@ def downloadDocument(*, request):
         fileToWrite.FetchMetadata()
         fileToWrite.GetContentFile('./Downloaded/' + fileToWrite['title'] + '.pdf',
                 mimetype='application/pdf')
-        listing.setDocID(id=id, name=fileToWrite['title'])
+        listings.setDocID(id=id, name=fileToWrite['title'])
 
 
 # is this even good practice any more? Is there a better standard? Probably.

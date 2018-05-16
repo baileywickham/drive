@@ -15,7 +15,7 @@ def outputList(fileList):
     # need to impliment already downloaded check, then return a clean
     # prompt list
     responses = prompt(c)['docs']
-    return [file['id'] for file in fileList if file['title'] in responses and file['id'] not in idList]
+    return [file['id'] for file in fileList if file['title'] in responses and file['id'] not in getDownloadedFiles()]
 
 def setDocID(*, id, name):
     xattr.setxattr(os.path.join('Downloaded', name), 'user.docid', id)
