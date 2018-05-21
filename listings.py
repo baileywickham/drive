@@ -22,4 +22,4 @@ def setDocID(*, id, name):
 
 def showOptions():
     c = [List('options', message='Welcome to Drive', choices=['Download', 'Edit', 'Upload'])]
-    
+    return prompt(c)['options']

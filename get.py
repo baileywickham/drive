@@ -34,7 +34,12 @@ def downloadDocument(*, request):
 
 def options():
     # this will list the options, including download, open, and upload
-    showOptions()
+    optionList = {'Download' : getList(),
+            'Edit' : pass,
+            'Upload' : pass}
+
+    optionList[showOptions()]
+
 # is this even good practice any more? Is there a better standard? Probably.
 def main():
     getList()
