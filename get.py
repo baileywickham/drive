@@ -32,10 +32,13 @@ def downloadDocument(*, request):
                 mimetype='application/pdf')
         listings.setDocID(id=id, name=fileToWrite['title'])
 
-
+def options():
+    # this will list the options, including download, open, and upload
+    showOptions()
 # is this even good practice any more? Is there a better standard? Probably.
 def main():
     getList()
 
+# this is for modules, will not run unless it's being run on it's own.
 if __name__ == '__main__':
     main()

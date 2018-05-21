@@ -1,7 +1,7 @@
 # I think this will be depricated.
 import os
 import xattr
-from inquirer import Checkbox, prompt
+from inquirer import Checkbox, prompt, List
 
 def getDownloadedFiles():
     idList = [xattr.getxattr(os.path.join('Downloaded', file), 'user.docid') for file in os.listdir('./Downloaded')] 
@@ -19,3 +19,7 @@ def outputList(fileList):
 
 def setDocID(*, id, name):
     xattr.setxattr(os.path.join('Downloaded', name), 'user.docid', id)
+
+def showOptions():
+    c = [List('options', message='Welcome to Drive', choices=['Download', 'Edit', 'Upload'])]
+    
