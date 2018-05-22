@@ -8,6 +8,7 @@ gauth.LocalWebserverAuth()
 drive = GoogleDrive(gauth)
 
 #TODO add upload function, add check diff func. 
+@dictionary('Download')
 def getList():
     # sharedWithMe = false returns a 404 error. This is an api problem.
     fileList = drive.ListFile({'q' : "mimeType = 'application/vnd.google-apps.document'", 'maxResults' : 10}).GetList()
@@ -34,11 +35,18 @@ def downloadDocument(*, request):
 
 def options():
     # this will list the options, including download, open, and upload
-    optionList = {'Download' : getList(),
-            'Edit' : pass,
-            'Upload' : pass}
-
+    
     optionList[showOptions()]
+
+"""
+so... the logic here is that a. I want to use decorators, and b. I want to make it easy to 
+add to the option lists. I am not sure that this is the right place to use decorators, 
+but I like the idea and it is good practice. I am fairly sure it should motify the function
+in some way to make it a propper use.
+"""
+def dictionary(func, listName):
+    optionList.append(listName : func.__name__)
+    return func
 
 # is this even good practice any more? Is there a better standard? Probably.
 def main():
