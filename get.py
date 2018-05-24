@@ -22,6 +22,11 @@ def getList():
     request = listings.outputList(fileList)
     downloadDocument(request=request) 
 
+@dictionary('Upload')
+def upload():
+    lc = input("enter the file location:")
+    newFile = drive.CreateFile({"title" : lc.split("/")[len(lc.split
+    lc.split(".")
 # force keyword args out of laziness, eventually I'll add more args.
 def downloadDocument(*, request):
     # Downloads doc from ids returned.
@@ -36,8 +41,6 @@ def downloadDocument(*, request):
 def options():
     # this will list the options, including download, open, and upload
     
-    optionList[showOptions()]
-
 """
 so... the logic here is that a. I want to use decorators, and b. I want to make it easy to 
 add to the option lists. I am not sure that this is the right place to use decorators, 
