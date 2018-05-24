@@ -42,7 +42,8 @@ def downloadDocument(*, request):
         fileToWrite.GetContentFile('./Downloaded/' + fileToWrite['title'] + '.pdf',
                 mimetype='application/pdf')
         listings.setDocID(id=id, name=fileToWrite['title'])
-
+    else:
+        print("Finished Downloading")
 
 def options():
     # this will list the options, including download, open, and upload
@@ -55,14 +56,14 @@ but I like the idea and it is good practice. I am fairly sure it should motify t
 in some way to make it a propper use. also I need to access the list somehow
 """
 def dictionary(func, listName):
+    # I need to make get the optionList somehow, I would like to avoid global variables.
     optionList.append(listName : func.__name__)
     return func
 
 
 # is this even good practice any more? Is there a better standard? Probably.
 def main():
-    getList()
-
+    options()
 
 # this is for modules, will not run unless it's being run on it's own.
 if __name__ == '__main__':
