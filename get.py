@@ -47,6 +47,7 @@ def downloadDocument(*, request):
 
 def options():
     # this will list the options, including download, open, and upload
+    # pending above, showOptions will pass the options list in. 
     option = listings.showOptions()
 
 """
