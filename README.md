@@ -1,5 +1,6 @@
 # drive
-The goal of this is to provide a cli interface for downloading,editing, and uploading documents.
+The goal of this is to provide a cli interface for downloading,editing, and uploading documents to Google Drive. It uses the PyDrive wrapper.
+
 ## Requirements
 Built with python 3.8, the dev branch. May lead to compatibility problems.
 
