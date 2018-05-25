@@ -15,7 +15,8 @@ Built with python 3.8, the dev branch. May lead to compatibility problems.
 This is important for the Google API
 
 #### Run it
-''' 
+``` 
 pipenv shell
+
 python3 get.py
-'''
+```
