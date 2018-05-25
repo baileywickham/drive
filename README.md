@@ -29,3 +29,5 @@ Add a diff checker to get changes and auto upload when changed on disk
 Do something about formats.
 
 Figure out how to access the decorator list without violating scope issues.
+
+WRITE UNIT TESTS
