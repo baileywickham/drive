@@ -19,6 +19,7 @@ def outputList(fileList):
     return [file['id'] for file in fileList if file['title'] in responses and file['id'] not in getDownloadedFiles()]
 
 def setDocID(*, id, name):
+    assert os.path.isfile('Downloaded/' + name), 'file was not downloaded, cannot write attr'
     xattr.setxattr(os.path.join('Downloaded', name), 'user.docid', id)
 
 def showOptions():

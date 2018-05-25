@@ -10,5 +10,6 @@ pydrive = "*"
 readchar = "*"
 inquirer = "*"
 xattr = "*"
+pytest = "*"
 
 [dev-packages]

@@ -7,7 +7,7 @@ gauth.LocalWebserverAuth()
 
 drive = GoogleDrive(gauth)
 
-#TODO add upload function, add check diff func. 
+#TODO add check diff func. 
 @dictionary('Download')
 def getList():
     # sharedWithMe = false returns a 404 error. This is an api problem.
@@ -34,7 +34,6 @@ def upload():
 
 # force keyword args out of laziness, eventually I'll add more args.
 def downloadDocument(*, request):
-    # Downloads doc from ids returned.
     # TODO show progress. use readable format.
     for id in request:
         fileToWrite = drive.CreateFile({'id' : id})
@@ -58,6 +57,7 @@ in some way to make it a propper use. also I need to access the list somehow
 """
 def dictionary(func, listName):
     # I need to make get the optionList somehow, I would like to avoid global variables.
+    # This is actually pretty cool, I can make a dict of functions and call them.
     optionList.append(listName : func.__name__)
     return func
 
