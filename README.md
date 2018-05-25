@@ -3,7 +3,8 @@ The goal of this is to provide a cli interface for downloading,editing, and uplo
 ## Requirements
 Built with python 3.8, the dev branch. May lead to compatibility problems.
 
-
+## Use Case
+None, but it was fun to make. I want to use it to edit my essays with vim.
 ## Installing
 #### Clone the repo. 
 ``` git clone https://github.com/baileywickham/drive.git ```
