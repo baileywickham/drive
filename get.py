@@ -59,7 +59,7 @@ in some way to make it a propper use. also I need to access the list somehow
 def dictionary(func, listName):
     # I need to make get the optionList somehow, I would like to avoid global variables.
     # This is actually pretty cool, I can make a dict of functions and call them.
-    global optionList.append(listName : func.__name__)
+    optionList[listName] = func.__name__ 
     return func
 
 
