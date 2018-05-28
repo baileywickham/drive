@@ -14,11 +14,9 @@ def getList():
     # sharedWithMe = false returns a 404 error. This is an api problem.
     fileList = drive.ListFile({'q' : "mimeType = 'application/vnd.google-apps.document'", 'maxResults' : 10}).GetList()
 
-    #No idea when this would fail but it looks good.
     assert fileList is not None
 
-    # str literal, needs > 3.6
-    # print(f"the name is {f.title}")
+    # str literal, needs > 3.6 print(f"the name is {f.title}")
     # passes full list for later metadata support
     request = listings.outputList(fileList)
     downloadDocument(request=request) 
@@ -59,6 +57,7 @@ in some way to make it a propper use. also I need to access the list somehow
 def dictionary(func, listName):
     # I need to make get the optionList somehow, I would like to avoid global variables.
     # This is actually pretty cool, I can make a dict of functions and call them.
+    global optionList 
     optionList[listName] = func.__name__ 
     return func
 
